@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 2.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #image-container {
+            margin: 30px auto;
+            width: fit-content;
+        }
+        #resizable-image {
+            cursor: pointer;
+            display: block;
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Изменение размера изображения при клике</h1>
+    
+    <div id="image-container">
+        <img id="resizable-image" src="apple.jpg" alt="Пример изображения" width="200">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const image = document.getElementById('resizable-image');
+            let isEnlarged = false;
+            const originalWidth = 200;
+            if (!image.complete) {
+                image.onload = function() {
+                    initResizing();
+                };
+            } else {
+                initResizing();
+            }
+
+            function initResizing() {
+                image.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    if (isEnlarged) {
+                        image.style.width = originalWidth + 'px';
+                    } else {
+                        image.style.width = (originalWidth * 2) + 'px';
+                    }
+                    isEnlarged = !isEnlarged;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
