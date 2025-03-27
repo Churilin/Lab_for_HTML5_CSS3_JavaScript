@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 1.4 - Создание и использование объектов</title>
+</head>
+<body>
+    <h1>Создание и использование объектов</h1>
+    <script>
+
+        class NewClass {
+
+            constructor(title, url) {
+                this.title = title;
+                this.url = url;
+            }
+
+            show() {
+                document.write(`
+                    <h2>Данные объекта:</h2>
+                    <p><strong>Название:</strong> ${this.title}</p>
+                    <p><strong>URL:</strong> <a href="${this.url}">${this.url}</a></p>
+                `);
+            }
+        }
+		
+        const myObject = new NewClass(
+            "Пример объекта", 
+            "https://example.com"
+        );
+        myObject.show();
+    </script>
+</body>
+</html>
