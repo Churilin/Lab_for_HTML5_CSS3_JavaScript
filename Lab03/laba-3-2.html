@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытие нового окна</title>
+</head>
+<body>
+    <a href="#" id="new-window-link">Новое окно</a>
+    <script>
+        document.getElementById('new-window-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const newWindow = window.open(
+                '',
+                'newWindow', 
+                'width=600,height=400,left=100,top=100' 
+            );
+            
+            newWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Новое окно</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            padding: 20px;
+                        }
+                        h1 {
+                            color: #333;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1>Новое окно!</h1>
+                </body>
+                </html>
+            `);
+        });
+    </script>
+</body>
+</html>
