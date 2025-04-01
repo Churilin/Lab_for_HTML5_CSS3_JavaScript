@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Градиент</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gradientCanvas" width="800" height="500"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gradientCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const colors = [
+            {pos: 0.00, color: '#d2006b'},  
+            {pos: 0.25, color: '#d2006b'},
+            {pos: 0.30, color: '#992e6f'},
+            {pos: 0.35, color: '#6c5172'},
+            {pos: 0.45, color: '#308075'},
+            {pos: 0.50, color: '#0a9f78'},  
+            {pos: 0.55, color: '#02a777'},
+            {pos: 0.65, color: '#31b362'},
+            {pos: 0.75, color: '#80c83d'},  
+            {pos: 0.80, color: '#fee800'},
+            {pos: 1.00, color: '#fee800'}
+        ];
+
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        
+        colors.forEach(item => {
+            gradient.addColorStop(item.pos, item.color);
+        });
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    </script>
+</body>
+</html>
