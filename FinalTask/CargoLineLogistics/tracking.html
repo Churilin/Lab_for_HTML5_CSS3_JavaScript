@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CargoLine - Отслеживание груза</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                 <a href="index.html" class="logo">
+    <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="5" width="30" height="30" rx="3" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <rect x="15" y="10" width="20" height="20" fill="none" stroke="#ffffff" stroke-width="1"/>
+        <path d="M50 10 L70 10 L80 25 L70 40 L50 40 L60 25 Z" fill="#ff9900" stroke="#ffffff" stroke-width="0.5"/>
+        <text x="90" y="28" font-family="Arial" font-size="16" fill="#ffffff" 
+              filter="url(#textShadow)">CargoLine</text>
+        <text x="90" y="38" font-family="Arial" font-size="10" fill="#ffffff"
+              opacity="0.9">Грузоперевозки по РФ</text>
+        <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="rgba(0,0,0,0.3)"/>
+        </filter>
+    </svg>
+</a>
+                <ul class="nav-list">
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="prices.html">Цены</a></li>
+                    <li><a href="tracking.html" class="active">Отслеживание</a></li>
+                    <li><a href="request.html">Заявка на перевозку</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="tracking-container">
+            <div class="tracking-header">
+                <h1>Отслеживание груза</h1>
+                <p>Введите номер накладной для получения актуальной информации о статусе доставки</p>
+            </div>
+            
+            <div class="tracking-form">
+                <form id="tracking-form">
+                    <div class="form-group">
+                        <label for="tracking-number">Номер накладной:</label>
+                        <input type="text" id="tracking-number" placeholder="Пример: CARGO-123456789" required>
+                    </div>
+                    <button type="submit" class="track-button">Отследить</button>
+                </form>
+            </div>
+            
+            <section class="status-section">
+                <div class="status-icon">🚚</div>
+                <div class="status-message">Статус: В пути</div>
+                <div class="status-description">Ваш груз находится в процессе транспортировки</div>
+                <p>Текущее местоположение: <strong>г. Тверь</strong></p>
+                <p>Дата обновления: <strong>16.05.2025 14:30</strong></p>
+				<div class="delivery-progress">
+					<h3>График статуса доставки:</h3>
+					<canvas id="deliveryChart" width="600" height="200"></canvas>
+					<div class="chart-labels">
+						<span>Отправка</span>
+						<span>В пути</span>
+						<span>Доставка</span>
+					</div>
+				</div>
+            </section>
+            
+            <div class="tracking-details">
+                <div class="detail-card">
+                    <h3>Информация о грузе</h3>
+                    <p><strong>Номер накладной:</strong> <span id="cargo-number">CARGO-123456789</span></p>
+                    <p><strong>Вес:</strong> <span id="cargo-weight">250 кг</span></p>
+                    <p><strong>Объем:</strong> <span id="cargo-volume">1.2 м³</span></p>
+                    <p><strong>Тип груза:</strong> <span id="cargo-type">Бытовая техника</span></p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3>Маршрут</h3>
+                    <p><strong>Откуда:</strong> <span id="route-from">Москва</span></p>
+                    <p><strong>Куда:</strong> <span id="route-to">Санкт-Петербург</span></p>
+                    <p><strong>Дата отправки:</strong> <span id="date-start">15.05.2025</span></p>
+                    <p><strong>Планируемая доставка:</strong> <span id="date-end">18.05.2025</span></p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3>Дополнительная информация</h3>
+                    <p><strong>Транспорт:</strong> <span id="transport-type">Грузовик (ГАЗель NEXT)</span></p>
+                    <p><strong>Водитель:</strong> <span id="driver-name">Иванов А.С.</span></p>
+                    <p><strong>Контактный телефон:</strong> <span id="driver-phone">+7 (900) 123-45-67</span></p>
+                    <p><strong>Примерное время прибытия:</strong> <span id="eta">17.05.2025 18:00</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>CargoLine</h3>
+                    <p>Грузоперевозки по России с 2010 года</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Контакты</h3>
+                    <p>Санкт-Петербург, Метрофаньевское ш., 10</p>
+                    <p>+7 (812) 123-45-67</p>
+                    <p>info@cargoline.ru</p>
+                </div>
+            </div>
+            <p>&copy; 2025 CargoLine. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+	
+</body>
+</html>

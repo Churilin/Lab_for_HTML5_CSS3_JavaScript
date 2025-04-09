@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявка на перевозку - CargoLine</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                 <a href="index.html" class="logo">
+    <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="5" width="30" height="30" rx="3" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <rect x="15" y="10" width="20" height="20" fill="none" stroke="#ffffff" stroke-width="1"/>
+        <path d="M50 10 L70 10 L80 25 L70 40 L50 40 L60 25 Z" fill="#ff9900" stroke="#ffffff" stroke-width="0.5"/>
+        <text x="90" y="28" font-family="Arial" font-size="16" fill="#ffffff" 
+              filter="url(#textShadow)">CargoLine</text>
+        <text x="90" y="38" font-family="Arial" font-size="10" fill="#ffffff"
+              opacity="0.9">Грузоперевозки по РФ</text>
+        <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="rgba(0,0,0,0.3)"/>
+        </filter>
+    </svg>
+</a>
+                <ul class="nav-list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="prices.html">Калькулятор</a></li>
+                    <li><a href="tracking.html">Отслеживание</a></li>
+                    <li><a href="request.html" class="active">Заявка</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1>Заявка на перевозку</h1>
+            
+            <div class="contact-container">
+                <form id="request-form" class="request-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Ваше имя:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон:</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="delivery-date">Желаемая дата доставки:</label>
+                            <input type="date" id="delivery-date" name="delivery-date">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cargo-type">Тип груза:</label>
+                            <select id="cargo-type" name="cargo-type" required>
+                                <option value="">Выберите тип груза</option>
+                                <option value="general">Генеральный груз</option>
+                                <option value="fragile">Хрупкий груз</option>
+                                <option value="perishable">Скоропортящийся груз</option>
+                                <option value="dangerous">Опасный груз</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="urgency">Срочность доставки:</label>
+                            <input type="range" id="urgency" name="urgency" min="1" max="5" value="3">
+                            <span id="urgency-value" class="range-value">3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address-from">Адрес забора груза:</label>
+                        <input type="text" id="address-from" name="address-from" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address-to">Адрес доставки:</label>
+                        <input type="text" id="address-to" name="address-to" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cargo-description">Описание груза:</label>
+                        <textarea id="cargo-description" name="cargo-description" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="file-upload">Прикрепить документы:</label>
+                        <input type="file" id="file-upload" name="file-upload" multiple>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Отправить заявку</button>
+                </form>
+                
+                <div class="contact-info">
+                    <h2>Контактная информация</h2>
+                    <p><strong>Адрес:</strong> г. Санкт-Петербург, Метрофаньевское ш., 10, офис 77</p>
+                    <p><strong>Телефон:</strong> +7 (812) 123-45-67</p>
+                    <p><strong>Email:</strong> info@cargoline.ru</p>
+                    <p><strong>Режим работы:</strong> Пн-Пт: 9:00-18:00</p>
+                    
+                    <h3>Как добраться</h3>
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor"></iframe>
+                </div>
+            </div>
+            
+            <section class="video-section">
+                <h2>Наш транспортный парк</h2>
+                <video controls poster="images/transport-poster.jpg">
+                    <source src="video/transport.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CargoLine. Все права защищены.</p>
+        </div>
+    </footer>
+
+	<script src="js/script.js"></script>
+
+</body>
+</html>
